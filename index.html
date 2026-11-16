@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-logo" id="preloaderLogo">
+            <span class="logo-base">SPB.RACEFUN</span>
+            <span class="logo-fill" id="logoFill">SPB.RACEFUN</span>
+        </div>
+    </div>
+
     <header>
         <div class="logo">
             SPB.RACEFUN
@@ -97,5 +104,88 @@
             Сайт написан Масловским Даниилом Сергеевичем группы ИТ-9.25.1-ВР колледжа "IT Hub"
         </div>
     </footer>
+
+        <script>
+        (function () {
+            var preloader = document.getElementById('preloader');
+            var logo = document.getElementById('preloaderLogo');
+            if (!preloader || !logo) return;
+
+            var progress = 0;
+            var target = 0;
+            var rafId = null;
+            var done = false;
+
+            function setProgress(value) {
+                progress = Math.max(0, Math.min(100, value));
+                logo.style.setProperty('--fill', (100 - progress) + '%');
+            }
+
+            function animateTo(value, speed) {
+                target = value;
+                if (rafId) return;
+                function step() {
+                    var diff = target - progress;
+                    if (Math.abs(diff) < 0.5) {
+                        setProgress(target);
+                        rafId = null;
+                        return;
+                    }
+                    setProgress(progress + diff * (speed || 0.12));
+                    rafId = requestAnimationFrame(step);
+                }
+                rafId = requestAnimationFrame(step);
+            }
+
+            animateTo(15, 0.2);
+            document.addEventListener('readystatechange', function () {
+                if (document.readyState === 'interactive') {
+                    animateTo(60, 0.1);
+                }
+            });
+
+            var resources = document.querySelectorAll('img');
+            var loaded = 0;
+            if (resources.length) {
+                resources.forEach(function (img) {
+                    if (img.complete) {
+                        loaded++;
+                    } else {
+                        img.addEventListener('load', function () {
+                            loaded++;
+                            animateTo(60 + (loaded / resources.length) * 25, 0.1);
+                        });
+                        img.addEventListener('error', function () {
+                            loaded++;
+                            animateTo(60 + (loaded / resources.length) * 25, 0.1);
+                        });
+                    }
+                });
+            }
+
+            function finish() {
+                if (done) return;
+                done = true;
+                animateTo(100, 0.15);
+
+                var check = setInterval(function () {
+                    if (progress >= 99.5) {
+                        clearInterval(check);
+                        preloader.classList.add('hidden');
+                        preloader.addEventListener('transitionend', function () {
+                            preloader.remove();
+                        }, { once: true });
+                    }
+                }, 50);
+            }
+
+            if (document.readyState === 'complete') {
+                finish();
+            } else {
+                window.addEventListener('load', finish);
+            }
+            setTimeout(finish, 5000);
+        })();
+    </script>
 </body>
 </html>
