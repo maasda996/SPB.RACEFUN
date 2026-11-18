@@ -19,6 +19,7 @@ body {
     overflow-x: hidden;
 }
 
+/* --- ШАПКА --- */
 header {
     display: flex;
     justify-content: space-between;
@@ -49,13 +50,13 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    gap: clamp(0.8rem, 2vw, 2rem);
+    gap: clamp(0.8rem, 2vw, 1.5rem);
 }
 
 nav a {
     text-decoration: none;
     color: #ff0077;
-    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
     transition: color 0.2s ease, border-bottom 0.2s ease;
     padding: 0.5rem 0;
     border-bottom: 2px solid transparent;
@@ -68,67 +69,189 @@ nav a:focus {
     border-bottom: 2px solid #ff0077;
 }
 
+/* --- ОСНОВНОЙ КОНТЕНТ (ПОЛНОШИРИННЫЕ СЕКЦИИ) --- */
 main {
     flex: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: clamp(1rem, 2vw, 1.8rem);
-    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 4vw, 2.5rem);
-    justify-content: center;
-    align-items: stretch;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    padding: 0;
+}
+
+/* Общие стили для больших секций */
+.full-section {
+    width: 100%;
+    padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 4rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-content {
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* СЕКЦИЯ 1: Темная с фоновой картинкой */
+.section-hero {
+    background-color: #1a1c20;
+    background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    min-height: 500px;
+    position: relative;
+}
+
+/* Затемнение фона для читаемости */
+.section-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(19, 21, 24, 0.75);
+    z-index: 1;
+}
+
+.section-hero .section-content {
+    position: relative;
+    z-index: 2;
+}
+
+.section-hero h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+    color: #ff0077;
+}
+
+.section-hero > .section-content > p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+/* Список внутри темной секции (GT3, GT4 и т.д.) */
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.service-item {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.8rem;
+    border-radius: 10px;
+    border-top: 4px solid #ff0077;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    color: #1c1f24;
+    transition: transform 0.2s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-4px);
+}
+
+.service-item h3 {
+    color: #131518;
+    font-size: 1.3rem;
+}
+
+.service-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.service-item .spec {
+    margin-top: auto;
+    color: #ff0077;
+    font-weight: bold;
+}
+
+.service-item .cars {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+/* СЕКЦИЯ 2: Светлая с карточками */
+.section-light {
+    background-color: #f2f3f5;
+    color: #1c1f24;
+}
+
+.section-light h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 0.5rem;
+    color: #131518;
+}
+
+.section-light > .section-content > p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Сетка карточек внутри светлой секции */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
 }
 
 .card {
     background-color: #ffffff;
     border-radius: 10px;
-    padding: clamp(1.2rem, 3vw, 2rem);
-    box-shadow: 0 0.5vh 2vh rgba(19, 21, 24, 0.12);
-    min-width: 0;
+    padding: 2rem;
+    box-shadow: 0 0.5vh 2vh rgba(19, 21, 24, 0.08);
     border-top: 4px solid #ff0077;
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 1vh 3vh rgba(19, 21, 24, 0.2);
+    box-shadow: 0 1vh 3vh rgba(19, 21, 24, 0.15);
 }
 
 .card h2 {
     color: #131518;
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    overflow-wrap: break-word;
+    font-size: 1.4rem;
 }
 
 .card p {
     line-height: 1.6;
-    font-size: clamp(0.85rem, 1.4vw, 1rem);
-    overflow-wrap: break-word;
+    font-size: 0.95rem;
+    color: #444;
 }
 
-.spec {
+.card .spec {
     margin-top: auto;
     font-weight: bold;
     color: #ff0077;
-    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
-    letter-spacing: 0.5px;
+    font-size: 0.9rem;
 }
 
-.cars {
+.card .cars {
     font-weight: bold;
-    font-size: clamp(0.7rem, 1vw, 0.85rem);
-    letter-spacing: 0.5px;
+    font-size: 0.85rem;
     color: #1c1f24;
-    overflow-wrap: break-word;
+    margin-top: 0.5rem;
 }
 
+/* --- ПОДВАЛ --- */
 footer {
     background-color: #131518;
     color: #f5f5f5;
-    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 4vw, 2.5rem);
+    padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 4vw, 2.5rem);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     gap: clamp(1rem, 2vw, 2rem);
@@ -185,25 +308,20 @@ footer {
     overflow-wrap: break-word;
 }
 
-#drift-taxi,
-#drift-rental {
-    border-top-color: #ff0077;
-}
-
-#rental {
-    border-top-color: #131518;
-}
-
+/* --- МЕДИАЗАПРОСЫ --- */
 @media (max-width: 900px) {
-    main {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.5rem;
-        padding: 2rem 1.5rem;
-    }
-
     footer {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .full-section {
+        padding: 3rem 1rem;
+    }
+    .cards-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -228,20 +346,6 @@ footer {
         align-items: center;
     }
 
-    main {
-        grid-template-columns: 1fr;
-        padding: 1.5rem 1rem;
-        gap: 1rem;
-    }
-
-    .card {
-        padding: 1.5rem 1.2rem;
-    }
-
-    .card:hover {
-        transform: none;
-    }
-
     footer {
         grid-template-columns: 1fr;
         padding: 1.5rem 1rem;
@@ -259,25 +363,17 @@ footer {
     html {
         font-size: 15px;
     }
-
     .logo {
         font-size: 1.1rem;
         letter-spacing: 0.5px;
     }
-
     .card {
         padding: 1.2rem 1rem;
         border-radius: 8px;
     }
-
-    .card h2 {
-        font-size: 1.1rem;
-    }
-
     nav ul {
         gap: 0.6rem;
     }
-
     nav a {
         font-size: 0.8rem;
     }
@@ -289,18 +385,9 @@ footer {
         padding: 0.5rem 1rem;
         position: static;
     }
-
     nav ul {
         flex-wrap: nowrap;
         gap: 0.8rem;
-    }
-
-    main {
-        padding: 1rem;
-    }
-
-    .card {
-        padding: 1rem;
     }
 }
 
@@ -313,6 +400,7 @@ footer {
     }
 }
 
+/* --- ПРЕЛОАДЕР --- */
 .preloader {
     position: fixed;
     inset: 0;
