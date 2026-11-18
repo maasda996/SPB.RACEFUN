@@ -1,39 +1,234 @@
-<!-- 1. Прокат автомобилей (GT3 / GT4 / PorscheCUP) -->
-<section class="card" id="rental">
-    <h2>Прокат автомобилей</h2>
-    <p>Хотите сами сесть за руль гоночной техники? Автодром предлагает прокат
-       автомобилей из текущего парка — от дружелюбных GT4 до серьёзных GT3.
-       Перед выездом обязательны инструктаж и сопровождение инструктора.</p>
-    <p class="spec">GT3 · GT4 · PorscheCUP · только с инструктором</p>
-    <h3 class="cars">
-        Доступно: BMW M4 GT3 EVO, Porsche 911 GT3 (992), Ford Mustang GT3,
-        Alpine A110 GT4+, Porsche 718 Cayman GT4 RS CS, Mercedes-AMG GT4,
-        Porsche 911 Cup (992.2);
-    </h3>
-</section>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPB.RACEFUN</title>
+    <link rel="icon" href="resources/wheel_logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-logo" id="preloaderLogo">
+            <span class="logo-base">SPB.RACEFUN</span>
+            <span class="logo-fill" id="logoFill">SPB.RACEFUN</span>
+        </div>
+    </div>
 
-<!-- 2. Дрифт-такси -->
-<section class="card" id="drift-taxi">
-    <h2>Дрифт-такси</h2>
-    <p>Пассажирский заезд с профессиональным пилотом: разгон, боковое
-       скольжение, перекладки и контролируемый занос. Дрифт-такси работает
-       на трассе, где проходят этапы RDS и городские дрифт-соревнования,
-       поэтому ощущения максимально близки к соревновательным.</p>
-    <p class="spec">Пассажирское место · пилот RDS · экипировка по запросу</p>
-    <h3 class="cars">
-        Формат: заезд с пилотом по дрифт-трассе «Игора Драйв»;
-    </h3>
-</section>
+    <header>
+        <div class="logo">
+            SPB.RACEFUN
+        </div>
+        <nav aria-label="Основная навигация">
+            <ul>
+                <li><a href="#main">Главная</a></li>
+                <li><a href="#cars">Автопарк</a></li>
+                <li><a href="#track">Трасса</a></li>
+                <li><a href="#rental">Прокат</a></li>
+                <li><a href="#drift-taxi">Дрифт-такси</a></li>
+                <li><a href="#drift-rental">Дрифт-прокат</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- 3. Прокат дрифт-автомобилей (RDS-конфиг) -->
-<section class="card" id="drift-rental">
-    <h2>Прокат дрифт-автомобилей</h2>
-    <p>Для пилотов, которым нужен подготовленный автомобиль под действующий
-       конфиг RDS: каркас безопасности, гидроручник, спортивные сиденья
-       и настройки под скольжение. Формат — тренировочные сессии под
-       контролем инструктора, с обязательным брифингом и проверкой экипировки.</p>
-    <p class="spec">RDS-конфиг · каркас · гидроручник · сессиями</p>
-    <h3 class="cars">
-        Конфигурация: подготовка под действующие требования RDS;
-    </h3>
-</section>
+    <main id="main">
+        <!-- Существующие карточки -->
+        <section class="card" id="cars">
+            <h2>GT3</h2>
+            <p>Максимальная скорость и прижимная сила. Болиды класса GT3 —
+               это вершина клиентского автоспорта: свыше 500 л.с., карбон-керамические
+               тормоза и аэродинамика уровня 24 часов Ле-Мана.</p>
+            <p class="spec">~550 л.с. · 1 250 кг · сектора: 1:25</p>
+            <h3 class="cars">
+                В наличии: BMW M4 GT3 EVO, Porsche 911 GT3 (992), Ford Mustang GT3;
+            </h3>
+        </section>
+
+        <article class="card">
+            <h2>GT4</h2>
+            <p>Идеальный шаг для пилотов, освоивших карт и лёгкие спорткары.
+               GT4 прощает ошибки, но требует аккуратной работы с тормозом, газом
+               и точного следования траектории. Отличный вариант для первых
+               серьёзных заездов на большой трассе.</p>
+            <p class="spec">~430 л.с. · 1 350 кг · сектора: 1:34</p>
+            <h3 class="cars">
+                В наличии: Alpine A110 GT4+, Porsche 718 Cayman GT4 RS CS, Mercedes-AMG GT4;
+            </h3>
+        </article>
+
+        <section class="card">
+            <h2>PorscheCUP</h2>
+            <p>Монокубок на Porsche 911 GT3 Cup. Чистая механика, задний привод,
+               отсутствие электронных помощников. Именно здесь рождаются
+               настоящие гоночные рефлексы.</p>
+            <p class="spec">~510 л.с. · 1 200 кг · сектора: 1:28</p>
+            <h3 class="cars">
+                Авто: Porsche 911 Cup (992.2);
+            </h3>
+        </section>
+
+        <section class="card" id="track">
+            <h2>Трасса ИгораДрайв</h2>
+            <p>4,09 км асфальта, 17 поворотов и перепад высот до 20 метров.
+               Конфигурация спроектирована так, чтобы раскрывать потенциал
+               всех классов (от MX-5 ND Clubsport до Формулы-1).</p>
+            <p class="spec">4 090 м · 17 поворотов · ширина 12–15 м</p>
+        </section>
+
+        <!-- Новые карточки -->
+        <section class="card" id="rental">
+            <h2>Прокат автомобилей</h2>
+            <p>Хотите сами сесть за руль гоночной техники? Автодром предлагает прокат
+               автомобилей из текущего парка — от дружелюбных GT4 до серьёзных GT3.
+               Перед выездом обязательны инструктаж и сопровождение инструктора.</p>
+            <p class="spec">GT3 · GT4 · PorscheCUP · только с инструктором</p>
+            <h3 class="cars">
+                Доступно: BMW M4 GT3 EVO, Porsche 911 GT3 (992), Ford Mustang GT3,
+                Alpine A110 GT4+, Porsche 718 Cayman GT4 RS CS, Mercedes-AMG GT4,
+                Porsche 911 Cup (992.2);
+            </h3>
+        </section>
+
+        <section class="card" id="drift-taxi">
+            <h2>Дрифт-такси</h2>
+            <p>Пассажирский заезд с профессиональным пилотом: разгон, боковое
+               скольжение, перекладки и контролируемый занос. Дрифт-такси работает
+               на трассе, где проходят этапы RDS и городские дрифт-соревнования,
+               поэтому ощущения максимально близки к соревновательным.</p>
+            <p class="spec">Пассажирское место · пилот RDS · экипировка по запросу</p>
+            <h3 class="cars">
+                Формат: заезд с пилотом по дрифт-трассе «Игора Драйв»;
+            </h3>
+        </section>
+
+        <section class="card" id="drift-rental">
+            <h2>Прокат дрифт-автомобилей</h2>
+            <p>Для пилотов, которым нужен подготовленный автомобиль под действующий
+               конфиг RDS: каркас безопасности, гидроручник, спортивные сиденья
+               и настройки под скольжение. Формат — тренировочные сессии под
+               контролем инструктора, с обязательным брифингом и проверкой экипировки.</p>
+            <p class="spec">RDS-конфиг · каркас · гидроручник · сессиями</p>
+            <h3 class="cars">
+                Конфигурация: подготовка под действующие требования RDS;
+            </h3>
+        </section>
+    </main>
+
+    <footer id="contacts">
+        <div class="footer-col">
+            <h3>Навигация</h3>
+            <a href="#main">Главная</a>
+            <a href="#cars">Автопарк</a>
+            <a href="#track">Трасса</a>
+            <a href="#rental">Прокат</a>
+            <a href="#drift-taxi">Дрифт-такси</a>
+            <a href="#drift-rental">Дрифт-прокат</a>
+        </div>
+
+        <div class="footer-col">
+            <h3>Контакты</h3>
+            <p>Ленинградская обл., Приозерский р-н,</p>
+            <p>трасса «ИгораДрайв»</p>
+            <p>+7 (812) 615-70-00</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Заезды</h3>
+            <p>Пн–Пт: 10:00 – 20:00</p>
+            <p>Сб–Вс: 09:00 – 21:00</p>
+            <p>Только по предварительной записи</p>
+        </div>
+
+        <div class="copyright">
+            ©2026 IGORA RACING. Все права защищены. Гонки — это опасно, соблюдайте технику безопасности :)
+        </div>
+        <div class="creator">
+            Сайт написан Масловским Даниилом Сергеевичем группы ИТ-9.25.1-ВР колледжа "IT Hub"
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var preloader = document.getElementById('preloader');
+            var logo = document.getElementById('preloaderLogo');
+            if (!preloader || !logo) return;
+
+            var progress = 0;
+            var target = 0;
+            var rafId = null;
+            var done = false;
+
+            function setProgress(value) {
+                progress = Math.max(0, Math.min(100, value));
+                logo.style.setProperty('--fill', (100 - progress) + '%');
+            }
+
+            function animateTo(value, speed) {
+                target = value;
+                if (rafId) return;
+                function step() {
+                    var diff = target - progress;
+                    if (Math.abs(diff) < 0.5) {
+                        setProgress(target);
+                        rafId = null;
+                        return;
+                    }
+                    setProgress(progress + diff * (speed || 0.12));
+                    rafId = requestAnimationFrame(step);
+                }
+                rafId = requestAnimationFrame(step);
+            }
+
+            animateTo(15, 0.2);
+            document.addEventListener('readystatechange', function () {
+                if (document.readyState === 'interactive') {
+                    animateTo(60, 0.1);
+                }
+            });
+
+            var resources = document.querySelectorAll('img');
+            var loaded = 0;
+            if (resources.length) {
+                resources.forEach(function (img) {
+                    if (img.complete) {
+                        loaded++;
+                    } else {
+                        img.addEventListener('load', function () {
+                            loaded++;
+                            animateTo(60 + (loaded / resources.length) * 25, 0.1);
+                        });
+                        img.addEventListener('error', function () {
+                            loaded++;
+                            animateTo(60 + (loaded / resources.length) * 25, 0.1);
+                        });
+                    }
+                });
+            }
+
+            function finish() {
+                if (done) return;
+                done = true;
+                animateTo(100, 0.15);
+
+                var check = setInterval(function () {
+                    if (progress >= 99.5) {
+                        clearInterval(check);
+                        preloader.classList.add('hidden');
+                        preloader.addEventListener('transitionend', function () {
+                            preloader.remove();
+                        }, { once: true });
+                    }
+                }, 50);
+            }
+
+            if (document.readyState === 'complete') {
+                finish();
+            } else {
+                window.addEventListener('load', finish);
+            }
+            setTimeout(finish, 5000);
+        })();
+    </script>
+</body>
+</html>
