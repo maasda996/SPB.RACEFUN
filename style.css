@@ -20,7 +20,6 @@ body {
     overflow-x: hidden;
 }
 
-/* --- ШАПКА --- */
 header {
     display: flex;
     justify-content: space-between;
@@ -66,7 +65,6 @@ nav a:focus {
     border-bottom: 2px solid #ff0077;
 }
 
-/* --- ОСНОВНОЙ КОНТЕНТ --- */
 main {
     flex: 1;
     display: flex;
@@ -74,7 +72,6 @@ main {
     width: 100%;
 }
 
-/* Общие стили для больших секций */
 .full-section {
     width: 100%;
     padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 4rem);
@@ -91,18 +88,16 @@ main {
     gap: 1.5rem;
 }
 
-/* --- ТЕМНЫЕ СЕКЦИИ С ФОНОМ --- */
 .section-hero, .section-track, .section-drift {
     background-color: #1a1c20;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Эффект параллакса */
-    color: #000000;
+    background-attachment: fixed;
+    color: #ffffff;
     position: relative;
     min-height: 400px;
 }
 
-/* Затемнение фона для читаемости */
 .section-hero::before, 
 .section-track::before, 
 .section-drift::before {
@@ -138,7 +133,6 @@ main {
     color: #f5f5f5;
 }
 
-/* Сетка внутри темных секций */
 .services-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -186,9 +180,8 @@ main {
     margin-top: 0.5rem;
 }
 
-/* --- СВЕТЛАЯ СЕКЦИЯ --- */
 .section-light {
-    background-color: #f2f3f5;
+    background-color: #000000;
     color: #1c1f24;
 }
 
@@ -204,7 +197,6 @@ main {
     margin-bottom: 1.5rem;
 }
 
-/* Карточки в светлой секции */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -253,7 +245,6 @@ main {
     margin-top: 0.5rem;
 }
 
-/* --- ПОДВАЛ --- */
 footer {
     background-color: #131518;
     color: #f5f5f5;
@@ -314,7 +305,6 @@ footer {
     overflow-wrap: break-word;
 }
 
-/* --- МЕДИАЗАПРОСЫ --- */
 @media (max-width: 900px) {
     footer {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -330,7 +320,7 @@ footer {
         grid-template-columns: 1fr;
     }
     .section-hero, .section-track, .section-drift {
-        background-attachment: scroll; /* Отключаем фиксацию фона на мобильных */
+        background-attachment: scroll;
     }
 }
 
@@ -369,7 +359,6 @@ footer {
     }
 }
 
-/* --- ПРЕЛОАДЕР --- */
 .preloader {
     position: fixed;
     inset: 0;
