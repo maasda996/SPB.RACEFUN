@@ -97,7 +97,7 @@ main {
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Эффект параллакса */
-    color: #ffffff;
+    color: #000000;
     position: relative;
     min-height: 400px;
 }
