@@ -185,6 +185,15 @@ footer {
     overflow-wrap: break-word;
 }
 
+#drift-taxi,
+#drift-rental {
+    border-top-color: #ff0077;
+}
+
+#rental {
+    border-top-color: #131518;
+}
+
 @media (max-width: 900px) {
     main {
         grid-template-columns: repeat(2, minmax(0, 1fr));
