@@ -188,7 +188,7 @@ main {
 .section-light h2 {
     font-size: clamp(1.8rem, 3vw, 2.5rem);
     margin-bottom: 0.5rem;
-    color: #131518;
+    color: #ff0077;
 }
 
 .section-light > .section-content > p {
